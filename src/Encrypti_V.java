@@ -8,13 +8,13 @@ import java.security.*;
 import java.sql.*;
 import java.util.*;
 
-public class BackupCode extends JFrame {
+public class Encrypti_V extends JFrame {
 
     // Database connection and user ID
     private Connection connection;
     private int userId;
 
-    public BackupCode() {
+    public Encrypti_V() {
 
         // Attempt to connect to the database
         if (!connectToDatabase()) {
@@ -36,7 +36,7 @@ public class BackupCode extends JFrame {
         setLocationRelativeTo(null);
 
         // Load the GIF image
-        ImageIcon backgroundImage = new ImageIcon("C:\\Users\\amams\\OneDrive\\Desktop\\Codes\\Encrypti V\\Java\\EncriptiV\\src\\background.gif");
+        ImageIcon backgroundImage = new ImageIcon("C:\\Users\\amams\\OneDrive\\Desktop\\Codes\\Encrypti V\\src\\background.gif");
         JLabel backgroundLabel = new JLabel(backgroundImage);
 
         // Position the background label to cover the entire JFrame
@@ -295,9 +295,10 @@ public class BackupCode extends JFrame {
     // Retrieve file details from the database
     public Object[] fileDetails(byte[] fileId) {
         try {
-            String query = "SELECT file_name,encryption_key,iv FROM files WHERE file_id = ?";
+            String query = "SELECT file_name,encryption_key,iv FROM files WHERE file_id = ? AND user_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setBytes(1, fileId);
+            preparedStatement.setInt(2, userId);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 String fileName = resultSet.getString("file_name");
@@ -314,9 +315,10 @@ public class BackupCode extends JFrame {
     // Delete a record from the database
     private void deleteRecord(byte[] fileId) {
         try {
-            String query = "DELETE FROM files WHERE file_id = ?";
+            String query = "DELETE FROM files WHERE file_id = ? AND user_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setBytes(1, fileId);
+            preparedStatement.setInt(2, userId);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -369,7 +371,7 @@ public class BackupCode extends JFrame {
         try {
             Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
             SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
-            byte[] iv = new byte[12];
+            byte[] iv = new byte[16];
             new SecureRandom().nextBytes(iv);
             GCMParameterSpec parameterSpec = new GCMParameterSpec(128, iv);
             cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, parameterSpec);
@@ -412,7 +414,7 @@ public class BackupCode extends JFrame {
     // Main Function
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            BackupCode mainSwing = new BackupCode();
+            Encrypti_V mainSwing = new Encrypti_V();
             mainSwing.setVisible(true);
         });
     }
