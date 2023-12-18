@@ -7,13 +7,9 @@ This README provides instructions on setting up the tool, configuring the databa
 
 - [Introduction](#encrypti-v---secure-file-encryption-and-decryption-tool)
 - [Features](#features)
+- [Database Setup](#database-setup)
 - [Python Version](#python-version)
-  - [Setup](#setup)
-  - [Required Modules](#required-modules)
 - [Java Version](#java-version)
-  - [Setup](#java-setup)
-  - [Required Libraries](#required-libraries)
-- [How to Use](#how-to-use)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
@@ -26,6 +22,57 @@ This README provides instructions on setting up the tool, configuring the databa
 - Option to save encrypted files in a different location
 - Strong password enforcement
 - Secure storage of encryption keys in a database
+
+## Database Setup
+
+### Prerequisites
+
+- MySQL Server installed on your system.
+
+### Steps
+
+1. **Create Database:**
+
+    ```sql
+    CREATE DATABASE encryptiv_db;
+    ```
+
+2. **Use the Database:**
+
+    ```sql
+    USE encryptiv_db;
+    ```
+
+3. **Create Users Table:**
+
+    ```sql
+    CREATE TABLE users (
+        user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        username VARCHAR(255) NOT NULL,
+        password VARCHAR(64) NOT NULL
+    );
+    ```
+
+4. **Create Files Table:**
+
+    ```sql
+    CREATE TABLE files (
+        user_id INT NOT NULL,
+        file_id BINARY(32) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        encryption_key BINARY(32) NOT NULL,
+        iv BINARY(16),
+        PRIMARY KEY (file_id),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+    );
+    ```
+
+5. **Summary:**
+
+   - Database Name: `encryptiv_db`
+   - Tables:
+     - `users`
+     - `files`
 
 ## Python Version
 
