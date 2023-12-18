@@ -220,7 +220,7 @@ def loginButtonClicked(username, password):
     if userId == -1:
         showMessage("Login failed. Invalid username or password.")
     else:
-        hideComponents(usernameLabel, usernameField, passwordField, passwordLabel, loginButton, registerButton)
+        hideComponents(usernameLabel, usernameField, passwordField, passwordLabel, loginButton, registerButton, welcomeLabel)
         showButtons()
 
 # Function to handle register button click
@@ -248,6 +248,8 @@ if connection is None:
     sys.exit(1)
 
 # Create and place UI elements
+welcomeLabel = Label(root, text="Welcome to Encrypti V")
+welcomeLabel.place(x=150, y=30)
 usernameLabel = Label(root, text="Username:")
 usernameLabel.place(x=50, y=80)
 passwordLabel = Label(root, text="Password:")
