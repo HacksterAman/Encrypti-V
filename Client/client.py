@@ -1,6 +1,7 @@
 import sys
 import socket
 from PyQt6.QtWidgets import QApplication, QDialog, QCheckBox, QPushButton, QMessageBox
+from PyQt6.QtGui import QGuiApplication, QMovie, QIcon
 from gui import EncryptiVGUI
 from communication import Communication
 from authorize_user import login
@@ -51,6 +52,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
 
         # Create an instance of QApplication
         app = QApplication(sys.argv)
+
+        app.setWindowIcon(QIcon('logo.png'))
 
         # Create an instance of EncryptiVGUI
         window = EncryptiVGUI()
