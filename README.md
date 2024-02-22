@@ -1,17 +1,6 @@
 # Encrypti V - Secure File Encryption and Decryption Tool
 
-Encrypti V is a file encryption and decryption tool designed to provide a secure way to protect your files. 
-This README provides instructions on setting up the tool, configuring the database, and listing the required modules for both the Python and Java versions.
-
-## Table of Contents
-
-- [Introduction](#encrypti-v---secure-file-encryption-and-decryption-tool)
-- [Features](#features)
-- [Database Setup](#database-setup)
-- [Python Version](#python-version)
-- [Java Version](#java-version)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+Encrypti V is a file encryption and decryption tool designed to provide a secure way to protect your files. This README provides comprehensive instructions on setting up the tool, configuring the database, and using both the Python and Java versions. Additionally, it includes information on the client-server version utilizing ECDHE+Kyber for communication.
 
 ## Features
 
@@ -95,13 +84,17 @@ connection = pymysql.connect(host="localhost", user="your_username", password="y
 You need to install the following Python modules using `pip`:
 
 - `pymysql`
-- `Crypto`
+- `PyQt6`
+- `pycryptodome`
+- `cryptography`
 
 You can install these modules by running the following commands:
 
 ```bash
 pip install pymysql
+pip install PyQt6
 pip install pycryptodome
+pip install cryptography
 ```
 
 ### How to Use
@@ -172,11 +165,40 @@ java Encrypti_V
 
 4. Make sure to remember your username and password, as they are used for login.
 
+## Client-Server Version
+
+### Setup
+
+To set up the client-server version of Encrypti V, follow these steps:
+
+#### Prerequisites
+
+- Both client and server should have Python installed.
+- Ensure that the required Python libraries are installed.
+
+#### How to Use
+
+1. Run the `server.py` script on the server.
+
+```bash
+python server.py
+```
+
+2. Run the `client.py` script on the client.
+
+```bash
+python client.py
+```
+
+3. Follow the prompts to register/login and perform file encryption and decryption.
+
 ## Acknowledgements
 
 - This project was developed using the Python programming language for the Python version and Java for the Java version.
 
 - Encryption is performed using the Python version with the [PyCryptodome](https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html) library and the Java version using Java's built-in encryption capabilities.
+
+- The client-server version was implemented with the help of Python's socket programming.
 
 ## License
 
