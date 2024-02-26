@@ -77,7 +77,7 @@ To set up the Python version of Encrypti V, follow these steps:
 
 1. Make sure you have a MySQL database server set up and running.
 2. Create a database named `encryptiv_db` in your MySQL server.
-3. Update the database connection details in the `Encrypti_V.py` script.
+3. Update the database connection details in the `server.py` script.
 
 ```python
 connection = pymysql.connect(host="localhost", user="your_username", password="your_password", database="encryptiv_db")
@@ -88,7 +88,6 @@ connection = pymysql.connect(host="localhost", user="your_username", password="y
 You need to install the following Python modules using `pip`:
 
 - `pymysql`
-- `Tkinter`
 - `PyQt6`
 - `pycryptodome`
 - `cryptography`
@@ -97,90 +96,10 @@ You can install these modules by running the following commands:
 
 ```bash
 pip install pymysql
-pip install tk
 pip install PyQt6
 pip install pycryptodome
 pip install cryptography
 ```
-
-### How to Use
-
-1. Run the `Encrypti_V.py` script using Python.
-
-```bash
-python Encrypti_V.py
-```
-
-2. You will be prompted to log in or register as a user.
-
-3. After logging in, you can use the following options:
-
-   - **Encrypt**: Select a file to encrypt, choose encryption options, and save the encrypted file.
-
-   - **Decrypt**: Select an encrypted file, and it will be decrypted if you have the correct encryption key.
-
-4. Make sure to remember your username and password, as they are used for login.
-
-## Java Version
-
-### Setup
-
-To set up the Java version of Encrypti V, follow these steps:
-
-#### Database Configuration
-
-1. Make sure you have a MySQL database server set up and running.
-2. Create a database named `encryptiv_db` in your MySQL server.
-3. Update the database connection details in the `Encrypti_V.java` script.
-
-```java
-String jdbcUrl = "jdbc:mysql://localhost:3306/encryptiv_db";
-String username = "your_username";
-String password = "your_password";
-```
-
-#### Required Libraries
-
-You need to include the following Java libraries:
-
-- `javax.crypto`
-- `javax.swing`
-- `java.awt`
-- `java.io`
-- `java.nio.file`
-- `java.security`
-- `java.sql`
-- `java.util`
-
-### How to Use
-
-1. Compile and run the `Encrypti_V.java` script.
-
-```bash
-javac Encrypti_V.java
-java Encrypti_V
-```
-
-2. You will be prompted to log in or register as a user.
-
-3. After logging in, you can use the following options:
-
-   - **Encrypt**: Select a file to encrypt, choose encryption options, and save the encrypted file.
-
-   - **Decrypt**: Select an encrypted file, and it will be decrypted if you have the correct encryption key.
-
-4. Make sure to remember your username and password, as they are used for login.
-
-## Client-Server Version
-
-### Setup
-
-To set up the client-server version of Encrypti V, follow these steps:
-
-#### Prerequisites
-
-- Both client and server should have Python installed.
-- Ensure that the required Python libraries are installed.
 
 #### How to Use
 
