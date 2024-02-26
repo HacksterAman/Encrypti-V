@@ -126,7 +126,7 @@ public class Encrypti_V extends JFrame {
     private boolean connectToDatabase() {
         String jdbcUrl = "jdbc:mysql://localhost:3306/encryptiv_db";
         String username = "root";
-        String password = "AmanSingh197@";
+        String password = "root";
 
         try {
             connection = DriverManager.getConnection(jdbcUrl, username, password);
