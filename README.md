@@ -88,6 +88,7 @@ connection = pymysql.connect(host="localhost", user="your_username", password="y
 You need to install the following Python modules using `pip`:
 
 - `pymysql`
+- 'Tkinter'
 - `PyQt6`
 - `pycryptodome`
 - `cryptography`
@@ -96,6 +97,7 @@ You can install these modules by running the following commands:
 
 ```bash
 pip install pymysql
+pip install tk
 pip install PyQt6
 pip install pycryptodome
 pip install cryptography
