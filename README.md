@@ -4,7 +4,7 @@
 
 # Encrypti V - Secure File Encryption and Decryption Tool
 
-Encrypti V is a file encryption and decryption tool designed to provide a secure way to protect your files. This README provides comprehensive instructions on setting up the tool, configuring the database, and using both the Python and Java versions. Additionally, it includes information on the client-server version utilizing ECDHE+Kyber for communication.
+Encrypti V is a file encryption and decryption tool designed to provide a secure way to protect your files. This README provides comprehensive instructions on setting up the tool, configuring the database, and using Python Version. Additionally, it includes information on the client-server version utilizing ECDHE+Kyber for communication.
 
 ## Features
 
