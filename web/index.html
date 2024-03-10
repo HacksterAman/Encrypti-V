@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypti_V</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="frontend.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Encrypti_V</h1>
+    </header>
+    <main>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="file">
+            <input type="password" id="passwordInput" placeholder="Enter password">
+        </form>
+        <div class="buttons">
+            <button onclick="encryptFile()">Encrypt</button>
+            <button onclick="decryptFile()">Decrypt</button>
+        </div>
+    </main>
+</body>
+</html>
